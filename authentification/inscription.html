@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<titre>Inscription</titre>
+</head>
+
+<body>
+
+	<!-- Menu de navigation -->
+	<?php include 'menu_navigation.php'; ?>
+	
+	<form method="post">
+		<input type="email" name="email" id="email" placeholder="Votre adresse Email" required>
+		<br />
+		<input type="password" name="password" id="password" placeholder="Votre mot de passe" required>
+		<br />
+		<input type="password" name="password_confirm" id="password_confirm" placeholder="Confirmez votre mot de passe" required>
+		<br />
+		<input type="submit" name="formsend" id="formsend">
+	</form>
+	
+	<?php
+		
+		if(isset($_POST['formsend']))
+		{
+			extract($_POST)
+			
+			if(!empty($email) && !empty($password) && $password==$password_confirm)
+			{
+				echo "Votre Email : ".$email."<br/>";
+				echo "Votre mot de passe : ".$password."<br/>";
+				
+				$option = ['cost' => 12,];
+				$hashpass password_hash($password, PASSWORD_BCRYPT, $option);
+				
+				include 'database.php';
+				global $db;
+				
+				$q = $db->prepare("INSERT INTO users(email, password) VALUES(:email, :password)");
+				$q->execute(
+				[
+					'email' => $email
+					'password' => $hashpass
+				]);
+	
+	
+	?>
+		
