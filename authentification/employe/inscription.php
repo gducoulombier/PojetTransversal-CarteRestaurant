@@ -3,28 +3,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<titre>Inscription - Employe</titre>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../../css/w3.css">
+	<link rel="stylesheet" href="../../css/poppins.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
 
-	<!-- Menu de navigation
-	<?php include 'menu_navigation.php'; ?>
-	-->
+	<div class="w3-bar w3-red">
+		<a class="w3-bar-item w3-button fa fa-home" href="../../index.php"> Home</a>
+	</div>
 
-	<form method="post">
-		<input type="email" name="email" id="email" placeholder="Votre adresse Email" required>
-		<br />
-		<input type="text" name="idCarte" id="idCarte" placeholder="Votre numero de carte" required>
-		<br />
-		<input type="password" name="password" id="password" placeholder="Votre mot de passe" required>
-		<br />
-		<input type="password" name="password_confirm" id="password_confirm" placeholder="Confirmez votre mot de passe" required>
-		<br />
-		<input type="reset" name="reset" id="reset">
-		<input type="submit" name="formsend" id="formsend">
-	</form>
-	
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:40px;margin-right:40px">
+
+  <!-- Header / Solde -->
+  <div class="w3-container" style="margin-top:20px" id="showcase">
+    <h1 class="w3-xxxlarge"><b>Inscription</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+  </div>
+
+  <!-- Menu inscription -->
+
+<form method="post" class="w3-container w3-card-4 w3-light-grey">
+  <p>      
+  <label>Email</label>
+  <input type="email" name="email" id="email" class="w3-input w3-border" required>
+  </p>
+  <p>      
+  <label>Votre numero de carte</label>
+  <input type="text" name="idCarte" id="idCarte" class="w3-input w3-border" required>
+  </p>
+  <p>
+  <label>Votre mot de passe</label>	
+  <input type="password" name="password" id="password" class="w3-input w3-border" required>
+  </p>
+  <p>
+  <label>Confirmation du mot de passe</label>	
+  <input type="password" name="password_confirm" id="password_confirm" class="w3-input w3-border" required>
+  </p>
+  <p>
+  <input class="w3-button w3-grey w3-padding-large" type="reset" name="reset" id="reset">
+  <input class="w3-button w3-red w3-padding-large w3-hover-black" type="submit" name="formsend" id="formsend">
+  </p>
+</form>
+
+
+
+  <!-- Traitement inscription -->
+
+
+
 	<?php
 		
 		if(isset($_POST['formsend']))
@@ -43,9 +74,7 @@
 
 				if($result==0)
 				{
-
 					echo "Veuillez entrer un numero de carte valide";
-
 				}
 
 				else
@@ -69,11 +98,12 @@
 						]);
 
 						$_SESSION['email'] = $email;
+						$_SESSION['idCarte'] = $idCarte;
 
 						echo "Le compte a bien été créé";
 						sleep(5);
 
-  						header('Location: information.php');
+  						header('Location: inscription-information.php');
   						exit();
 					}
 

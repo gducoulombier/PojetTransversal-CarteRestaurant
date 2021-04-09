@@ -56,7 +56,7 @@
 				echo "Informations validés";
 				sleep(2);
 
-				header('Location: index-employeur.php');
+				header('Location: commande_carte.php');
 				exit();
 			}
 
