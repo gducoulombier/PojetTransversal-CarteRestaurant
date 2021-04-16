@@ -3,22 +3,36 @@
  ?>
 
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 <head>
-	<titre>Commande de cartes</titre>
+   
+    <?php include 'menu-employeur.php'; ?>
+    <meta http-quiv="Content-Type" content="text/html;charset=utf-8"/>
+    
 </head>
 
 <body>
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:40px;margin-right:40px">
 
-	<!-- Menu de navigation
-	<?php include 'menu_navigation.php'; ?>
-	-->
+  <!-- Header / Solde -->
+    <div class="w3-container" style="margin-top:20px" id="showcase">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Commande de cartes</b></h1>
+        <hr style="width:50px;border:5px solid red" class="w3-round">
+    </div>
 
+
+  <!-- Commande -->
+  	<br />
 	<form method="post">
-		Nombre de cartes à commander :
-		<input type="text" name="nbreCarte" id="nbreCarte" placeholder="nbreCarte" required>
+		Prix unitaire d'une carte : <?php echo $prixCarte; ?> €
 		<br />
-		<input type="submit" name="formsend" id="formsend">
+		Nombre de cartes à commander :
+		<input type="text" name="nbreCarte" id="nbreCarte" required>
+		<br />
+		<br />
+		<br />
+		<input type="submit" name="formsend" id="formsend" class="w3-button w3-red" value="Commander">
 	</form>
 	
 	<?php
@@ -72,11 +86,7 @@
 					]);
 
 
-
-					echo "Commande validée";
-					sleep(2);
-
-					header('Location: index-employeur.php');
+					header('refresh:1; URL=commande-valide.php');
 					exit();
 
 				}
@@ -92,3 +102,5 @@
 	
 	?>
 		
+</body>
+</html>

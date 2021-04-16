@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 29 mars 2021 à 16:44
+-- Généré le : ven. 02 avr. 2021 à 15:28
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -35,14 +35,35 @@ CREATE TABLE IF NOT EXISTS `cartes` (
   PRIMARY KEY (`idCarte`),
   KEY `idEmploye` (`idEmploye`),
   KEY `idEmployeur` (`idEmployeur`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `cartes`
 --
 
 INSERT INTO `cartes` (`idCarte`, `idEmploye`, `idEmployeur`) VALUES
-(1, 1, 1);
+(1, 1, 1),
+(2, 0, 9),
+(3, 5, 9),
+(4, 0, 9),
+(5, 0, 9),
+(6, 0, 9),
+(7, 0, 9),
+(8, 0, 9),
+(9, 0, 9),
+(10, 0, 9),
+(11, 0, 9),
+(12, 4, 9),
+(13, 0, 9),
+(14, 0, 9),
+(15, 0, 9),
+(16, 0, 9),
+(17, 0, 9),
+(18, 0, 9),
+(19, 0, 9),
+(20, 0, 9),
+(21, 0, 9),
+(22, 0, 9);
 
 -- --------------------------------------------------------
 
@@ -58,7 +79,26 @@ CREATE TABLE IF NOT EXISTS `commande` (
   `dateCommande` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`idCommande`),
   KEY `idEmployeur` (`idEmployeur`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `commande`
+--
+
+INSERT INTO `commande` (`idCommande`, `idEmployeur`, `nbCartes`, `dateCommande`) VALUES
+(1, 9, 2, '2021-03-30 20:35:00'),
+(2, 9, 2, '2021-03-30 20:35:44'),
+(3, 9, 2, '2021-03-30 20:37:05'),
+(4, 9, 2, '2021-03-30 20:37:39'),
+(5, 9, 2, '2021-03-30 20:42:58'),
+(6, 9, 3, '2021-03-30 20:45:05'),
+(7, 9, 3, '2021-03-30 20:45:38'),
+(8, 9, 3, '2021-03-30 20:46:33'),
+(9, 9, 1, '2021-03-30 20:48:00'),
+(10, 9, 2, '2021-03-30 20:48:41'),
+(11, 9, 1, '2021-03-30 20:51:49'),
+(12, 9, 2, '2021-03-30 20:52:48'),
+(13, 9, 2, '2021-03-30 20:52:50');
 
 -- --------------------------------------------------------
 
@@ -97,8 +137,11 @@ CREATE TABLE IF NOT EXISTS `compte` (
 --
 
 INSERT INTO `compte` (`Email`, `password`, `typeCompte`) VALUES
+('toto3@insa.fr', '$2y$12$6lH1LKkUT9O7J0ANPm4AOOI03Af11KJDQPwXKpk.ubE0zdsTR.TEy', 'employe'),
 ('guillaume@insa.fr', '$2y$12$rGJV1D0NALGZmS5nwu/5BOoe49eAOP52GkHR084OnOzjWQ4X.DHsi', 'employe'),
-('julien@insa.fr', '$2y$12$00BNZUxNBBi3xOoGpu3mK.Iz3O.R6eVk/hHUhgl9i8WnCjxP1NOve', 'employe');
+('julien@insa.fr', '$2y$12$00BNZUxNBBi3xOoGpu3mK.Iz3O.R6eVk/hHUhgl9i8WnCjxP1NOve', 'employe'),
+('toto@insa.fr', '$2y$12$M9EaR4opMysoX7gSudwjnOXQsYXmpCvy1s3x7R8yQbzFJmRe0ihCW', 'employe'),
+('toto2@insa.fr', '$2y$12$EMcAOZB3bqSf69alPx4fKO1OAC8mOaGsNwS0169p33f2CCM9BTkxy', 'employe');
 
 -- --------------------------------------------------------
 
@@ -119,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `employe` (
   `PourcentageEmployeur` int(11) NOT NULL,
   PRIMARY KEY (`idEmploye`),
   KEY `Email` (`Email`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `employe`
@@ -127,7 +170,8 @@ CREATE TABLE IF NOT EXISTS `employe` (
 
 INSERT INTO `employe` (`idEmploye`, `Email`, `Nom`, `Adresse`, `DateNaissance`, `RIB`, `SoldeCompte`, `DatePrelevement`, `PourcentageEmployeur`) VALUES
 (4, 'julien@insa.fr', 'julien', 'ldifjodsjfo', '2021-03-29', 'FR76 1234 1234 1234 1234 123', '0', '2021-03-29', 20),
-(3, 'guillaume@insa.fr', 'DUCOULOMBIER', '1934 Route de Sisteron', '1997-02-05', 'FR76 1234 1234 1234 1234 123', '0', '2021-03-23', 20);
+(3, 'guillaume@insa.fr', 'DUCOULOMBIER', '1934 Route de Sisteron', '1997-02-05', 'FR76 1234 1234 1234 1234 123', '0', '2021-03-23', 20),
+(5, 'toto3@insa.fr', 'toto', 'totoville', '2021-03-30', 'FR76 1234 1234 1234 1234 123', '0', '2021-03-30', 20);
 
 -- --------------------------------------------------------
 
@@ -147,14 +191,18 @@ CREATE TABLE IF NOT EXISTS `employeur` (
   `DatePrelevement` date NOT NULL,
   PRIMARY KEY (`idEmployeur`),
   KEY `Email` (`Email`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `employeur`
 --
 
 INSERT INTO `employeur` (`idEmployeur`, `Email`, `NomEntreprise`, `Adresse`, `SIRET`, `RIB`, `PourcentageDefaut`, `DatePrelevement`) VALUES
-(1, 'employeur@insa.fr', 'insa', 'insa, 69 Lyon', '123456789123', 'FR76 1234 5678 1234 5678 123', 20, '2021-04-05');
+(9, 'julien@insa.fr', 'employe', 'valence', 'mefosdjoif', 'FR76 1234 1234 1234 1234 123', 20, '2021-03-31'),
+(8, 'julien@insa.fr', 'employe', 'valence', 'mefosdjoif', 'FR76 1234 1234 1234 1234 123', 20, '2021-03-31'),
+(7, 'julien@insa.fr', 'employe', 'valence', 'mefosdjoif', 'FR76 1234 1234 1234 1234 123', 20, '2021-03-31'),
+(1, 'employeur@insa.fr', 'insa', 'insa, 69 Lyon', '123456789123', 'FR76 1234 5678 1234 5678 123', 20, '2021-04-05'),
+(10, 'julien@insa.fr', 'employe', 'valence', 'mefosdjoif', 'FR76 1234 1234 1234 1234 123', 20, '2021-03-31');
 
 -- --------------------------------------------------------
 
@@ -169,7 +217,15 @@ CREATE TABLE IF NOT EXISTS `factures` (
   `Montant` int(11) NOT NULL,
   PRIMARY KEY (`idFacture`),
   KEY `idCommande` (`idCommande`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `factures`
+--
+
+INSERT INTO `factures` (`idFacture`, `idCommande`, `Montant`) VALUES
+(1, 12, 10),
+(2, 13, 10);
 
 -- --------------------------------------------------------
 

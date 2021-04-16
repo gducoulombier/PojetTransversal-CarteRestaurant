@@ -9,18 +9,16 @@
 
 <body>
 	<div class="w3-bar w3-red">
-		<a class="w3-bar-item w3-button fa fa-home" href="index-employe.php"></a>
+		<a class="w3-bar-item w3-button fa fa-home" href="index-commercant.php"></a>
 		<a class="w3-bar-item w3-button" href="informations.php" >Informations</a>
     <div class="w3-dropdown-hover">
-      <button class="w3-button">Carte</button>
+      <button class="w3-button">Terminal</button>
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
-          <a href="carte-option.php" class="w3-bar-item w3-button">Options</a>
-          <a href="carte-renouvellement.php" class="w3-bar-item w3-button">Renouvellement</a>
+          <a href="TPE-installation.php" class="w3-bar-item w3-button">Ajouter un terminal</a>
+          <a href="TPE-terminaux.php" class="w3-bar-item w3-button">Mes terminaux</a>
       </div>
      </div>
 		<a class="w3-bar-item w3-button" href="transactions.php" >Transactions</a>
-    <a class="w3-bar-item w3-button" href="game.php" >Mini-jeu</a>
-
 
 
   		<a class="w3-bar-item w3-button w3-right fa fa-sign-in" href="../../index.php"> Déconnexion</a>

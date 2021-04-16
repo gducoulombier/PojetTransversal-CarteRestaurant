@@ -97,10 +97,14 @@ function drawResultOnWin() {
   if(matches) {
     //code
     fill(0, 0, 0)
-    text("Bravo tu as tout trouvé", 20, 360)
+    RedirectionJavascript();
   }
 }
- 
+
+function RedirectionJavascript(){
+  location.replace("gain-tempon.php"); 
+}
+
 function setup() {
   createCanvas(1200, 1000)
  

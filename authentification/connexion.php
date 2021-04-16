@@ -37,6 +37,9 @@
   <input type="password" name="password" id="password" class="w3-input w3-border" required>
   </p>
   <p>
+  <a href="mdp-oublie.php" class="w3-right">Mot de passe oublié</a>
+  </p>
+  <p>
   <input class="w3-button w3-red w3-padding-large w3-hover-black" type="submit" name="formsend" id="formsend">
   </p>
 </form>
@@ -81,11 +84,13 @@
 							$c->execute(['email' => $email]);
 							$result = $c->fetch();
 
+							$_SESSION['idEmploye'] = $result['idEmploye'];
 							$_SESSION['nom'] = $result['Nom'];
 							$_SESSION['soldeCompte'] = $result['SoldeCompte'];
 							$_SESSION['adresse'] = $result['Adresse'];
 							$_SESSION['RIB'] = $result['RIB'];
 							$_SESSION['dateNaissance'] = $result['DateNaissance'];
+							$_SESSION['gain'] = 0;
 
 							header('Location: employe/index-employe.php');
 							
@@ -97,9 +102,16 @@
 							$c->execute(['email' => $email]);
 							$result = $c->fetch();
 
-							$_SESSION['nomEntreprise'] = $result['nomEntreprise'];
-							$_SESSION['siret'] = $result['siret'];
+							$_SESSION['nomEntreprise'] = $result['NomEntreprise'];
+							$_SESSION['SIRET'] = $result['SIRET'];
+							$_SESSION['idEmployeur'] = $result['idEmployeur'];
+							$_SESSION['adresse'] = $result['Adresse'];
+							$_SESSION['pourcentage'] = $result['PourcentageDefaut'];
+							$_SESSION['RIB'] = $result['RIB'];
+
 							
+							header('Location: employeur/index-employeur.php');
+
 						}
 						elseif ($_SESSION['typeCompte'] == 'commercant')
 						{
@@ -108,9 +120,14 @@
 							$c->execute(['email' => $email]);
 							$result = $c->fetch();
 
-							$_SESSION['nomEntreprise'] = $result['nom'];
-							$_SESSION['siret'] = $result['siret'];
+							$_SESSION['nomEntreprise'] = $result['Nom'];
+							$_SESSION['SIRET'] = $result['SIRET'];
+							$_SESSION['adresse'] = $result['Adresse'];
+							$_SESSION['RIB'] = $result['RIB'];
 							
+
+							header('Location: commercant/index-commercant.php');
+
 						}
 
 					}

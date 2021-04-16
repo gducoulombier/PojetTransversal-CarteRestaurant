@@ -29,8 +29,8 @@
 
 <form method="post" class="w3-container w3-card-4 w3-light-grey">
   <p>      
-  <label>Nom de votre entreprise</label>
-  <input type="text" name="nomEntreprise" id="nomEntreprise" class="w3-input w3-border" required>
+  <label>Nom de votre restaurant</label>
+  <input type="text" name="nom" id="nom" class="w3-input w3-border" required>
   </p>
   <p>      
   <label>Votre numero de SIRET</label>
@@ -78,7 +78,7 @@
 				if($result == 0)
 				{
 
-					$q = $db->prepare("INSERT INTO compte(email, password, typeCompte) VALUES(:email, :password, 'employeur')");
+					$q = $db->prepare("INSERT INTO compte(email, password, typeCompte) VALUES(:email, :password, 'commercant')");
 					$q->execute(
 					[
 						'email' => $email,
@@ -86,7 +86,7 @@
 					]);
 
 					$_SESSION['email'] = $email;
-					$_SESSION['nomEntreprise'] = $nomEntreprise;
+					$_SESSION['nom'] = $nom;
 					$_SESSION['siret'] = $siret;
 
 					echo "Le compte a bien été créé";
@@ -114,7 +114,6 @@
 	
 	
 	?>
-	
-</div>
+
 </body>
-</html>	
+</html>

@@ -25,9 +25,10 @@
     <h3 class="w3-padding-64"><b>WineMoreTime</b></h3>
   </div>
   <div class="w3-bar-block">
-    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Acceuil</a> 
+    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Accueil</a> 
     <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Services</a>
-    <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Offres</a>   
+    <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Offres</a> 
+    <a href="#restaurants" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Restaurants</a>  
     <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
   </div>
   <div class="w3-bar w3-bottom">
@@ -53,7 +54,7 @@
   <!-- Header -->
   <div class="w3-container" style="margin-top:80px" id="showcase">
     <h1 class="w3-jumbo"><b>La carte restaurant</b></h1>
-    <h1 class="w3-xxxlarge w3-text-red"><b>Acceuil.</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Accueil.</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
   </div>
   
@@ -99,6 +100,7 @@
         <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
         <li class="w3-padding-16">Envoi des cartes</li>
         <li class="w3-padding-16">100 cartes maximum</li>
+        <li class="w3-padding-16">Prix d'une carte : 7€</li>
         <li class="w3-padding-16">Modification de la prise en charge générale</li>
         <li class="w3-padding-16">Support disponible par mail</li>
         <li class="w3-padding-16">
@@ -116,6 +118,7 @@
         <li class="w3-red w3-xlarge w3-padding-32">Premium</li>
         <li class="w3-padding-16">Envoi des cartes prioritaire</li>
         <li class="w3-padding-16">Nombre illimité de cartes</li>
+        <li class="w3-padding-16">Prix d'une carte : 5€</li>
         <li class="w3-padding-16">Prise en charge ajustable pour chaque compte</li>
         <li class="w3-padding-16">Support disponible par mail et par téléphone</li>
         <li class="w3-padding-16">
@@ -129,6 +132,18 @@
     </div>
   </div>
   
+
+  <!-- Restaurateurs -->
+  <div class="w3-container" id="restaurants" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Restaurants.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>Vous êtes restaurateur et désirez proposer ce moyen de paiement à vos clients ?</p>
+    <p>Pas besoin de nouveau matériel, votre terminal de paiement (TPE) actuel est tout à fait capable de vous permettre d'accepter ce type de paiement. Il vous suffit de créer un compte Aventix et d'enregistrer votre TPE chez nous afin de pouvoir proposer ce service.</p>
+    <p>Inscrivez vous maintenant pour commencer l'aventure Aventix !</p>
+    <a href="authentification/commercant/inscription.php" class="w3-button w3-red w3-padding-large w3-hover-black">Sign Up</a>
+  </div>
+
+
   <!-- Contact -->
   <div class="w3-container" id="contact" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-red"><b>Contact.</b></h1>

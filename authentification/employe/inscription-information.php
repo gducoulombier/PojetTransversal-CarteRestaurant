@@ -111,6 +111,12 @@
 					
 					$_SESSION['nom'] = $nom;
 					$_SESSION['nomEntreprise'] = $nomEntreprise;
+					$_SESSION['soldeCompte'] = 0;
+					$_SESSION['adresse'] = $adresse;
+					$_SESSION['RIB'] = $rib;
+					$_SESSION['dateNaissance'] = $dateDeNaissance;
+					$_SESSION['gain'] = 0;
+					
 
 					echo "Informations validés";
 					sleep(2);

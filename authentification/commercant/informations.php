@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 <head>
    
-    <?php include 'menu-employe.php'; ?>
+    <?php include 'menu-commercant.php'; ?>
     <meta http-quiv="Content-Type" content="text/html;charset=utf-8"/>
     
 </head>
@@ -23,14 +23,8 @@
 
 <TABLE> 
   <TR> 
-    <TD> <p>Nom : </p></TD>
-    <TD> <p><?php echo $_SESSION['nom']?></p> </TD>
-    <TD> <a class="w3-button w3-tiny w3-white w3-border w3-border-red w3-round-large" style="margin-left:50px" href="modifier_nom.php">
-            Modifier </a> </TD> 
-  </TR>
-  <TR> 
-    <TD> <p>Date de naissance : </p></TD>
-    <TD> <p><?php echo $_SESSION['dateNaissance']?></p> </TD>
+    <TD> <p>Nom du restaurant : </p></TD>
+    <TD> <p><?php echo $_SESSION['nomEntreprise']?></p> </TD>
     <TD></TD> 
   </TR>
   <TR> 
@@ -47,5 +41,7 @@
   </TR>
 </TABLE> 
 
+
+</main>
 </body>
 </html>
